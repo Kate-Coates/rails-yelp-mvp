@@ -11,12 +11,5 @@ Rails.application.routes.draw do
   resources :restaurants, except: [:index] do
     resources :reviews, only: [:new, :create]
 
-    collection do
-      # /restaurants
-    get :top
-    get :info
-    end
-
-    resources :reviews, only: [:destroy]
   end
 end

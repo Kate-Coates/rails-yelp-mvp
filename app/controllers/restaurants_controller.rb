@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[show edit destroy]
+  before_action :set_restaurant, only: %i[show edit]
 
   def index
     @restaurants = Restaurant.all
@@ -22,11 +22,6 @@ class RestaurantsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @restaurant.destroy
-    redirect_to restaurants_path, notice: "Restaurant was successfully destroyed.", status: :see_other
   end
 
   private
