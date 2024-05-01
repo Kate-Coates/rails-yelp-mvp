@@ -1,0 +1,29 @@
+
+  <p>
+    <strong>Name:</strong>
+    <%= restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= restaurant.address %>
+  </p>
+
+  <h2>Reviews</h2>
+  <ul>
+    <% if restaurant.reviews.length > 0 %>
+      <% restaurant.reviews.each do |review| %>
+        <li>
+          <%= review.content %>
+
+          <%= link_to "Delete",
+            review_path(review),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+
+        </li>
+      <% end %>
+    <% else %>
+      <p>No reviews yet</p>
+    <% end %>
+  </ul>
